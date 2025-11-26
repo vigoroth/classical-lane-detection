@@ -26,31 +26,7 @@ The implementation includes a comprehensive test suite (97 tests, 63% coverage),
 - **Analysis Tools**: Performance benchmarks, failure mode analysis, CSV export
 - **CI/CD Ready**: GitHub Actions workflow for automated testing
 
-## 📸 Demo
 
-### Successful Detection Examples
-
-<table>
-  <tr>
-    <td><img src="results/visualizations/test_output.jpg" alt="Highway Detection" width="400"/></td>
-    <td><img src="results/visualizations/test3_output.jpg" alt="Urban Detection" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center"><i>Highway lane detection with clear markings</i></td>
-    <td align="center"><i>Urban road scenario</i></td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td><img src="results/visualizations/007416_png.rf.95ed81938326ace32486b804613a7711_output.jpg" alt="Real-world Example" width="400"/></td>
-    <td><img src="results/visualizations/007358_png.rf.5c4cba008c195b310712ad13c5418675_output.jpg" alt="Good Quality Detection" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center"><i>Real-world dataset example</i></td>
-    <td align="center"><i>High-quality detection result</i></td>
-  </tr>
-</table>
 
 ### Detection Performance
 
