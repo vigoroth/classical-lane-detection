@@ -1,0 +1,70 @@
+# Lane Detection Configuration - Urban Scenario
+# ===============================================
+# Optimized for urban/city driving conditions:
+# - More noise from surrounding objects (cars, pedestrians, signs)
+# - Shorter lane segments due to intersections
+# - Possibly worn or unclear lane markings
+# - More shadows and lighting variations
+
+# Input/Output Settings
+# ---------------------
+input:
+  # Path to the input image (required)
+  image: "learning_projects/project-01-classical-lanes/data/input/007416_png.rf.95ed81938326ace32486b804613a7711.jpg"
+
+output:
+  # Path to save the output image (optional, set to null to skip saving)
+  path: null
+  # Whether to display the result in a window
+  display: true
+
+# Preprocessing Parameters
+# ------------------------
+preprocessing:
+  # Higher blur for urban - reduce noise from surroundings
+  # Urban scenes have more clutter (cars, signs, shadows)
+  blur_kernel: 7
+
+# Edge Detection Parameters
+# -------------------------
+edge_detection:
+  # Higher thresholds for urban to reduce false positives
+  # More noise in urban environments requires stricter edge detection
+  canny_low: 60
+  canny_high: 180
+
+# Hough Transform Parameters
+# --------------------------
+hough_transform:
+  # Distance resolution in pixels of the Hough grid
+  rho: 1
+
+  # Angular resolution in radians (1 degree)
+  theta: 0.017453293  # np.pi / 180
+
+  # Higher threshold for urban - more strict to reduce noise
+  # Need more votes to confirm a line is real
+  threshold: 60
+
+  # Shorter minimum line length for urban
+  # City streets have shorter visible lane segments
+  min_line_length: 30
+
+  # Smaller gap tolerance for urban
+  # Segments are shorter and more fragmented
+  max_line_gap: 100
+
+# Region of Interest (ROI) Settings
+# ---------------------------------
+roi:
+  # Tighter ROI for urban to exclude more surrounding objects
+  # Urban scenes have more distractions outside the immediate lane area
+  vertices: null  # Use automatic ROI
+  # For custom urban ROI, consider narrower trapezoid:
+  # [[100, 720], [500, 400], [780, 400], [1180, 720]]
+
+# Logging Settings
+# ----------------
+logging:
+  # Set to DEBUG to see detailed processing information
+  level: "INFO"

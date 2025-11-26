@@ -1,0 +1,81 @@
+# Lane Detection Configuration File
+# ===================================
+# This file contains all configurable parameters for the classical lane detection pipeline
+
+# Input/Output Settings
+# ---------------------
+input:
+  # Path to the input image (required)
+  image: "/home/vigoroth/mst_research/temporal 3D detection  BEV/learning_projects/project-01-classical-lanes/data/input/test.jpg"
+
+output:
+  # Path to save the output image (optional, set to null to skip saving)
+  path: null
+  # Whether to display the result in a window
+  display: true
+
+# Preprocessing Parameters
+# ------------------------
+preprocessing:
+  # Kernel size for Gaussian blur (must be odd number)
+  # Larger values = more blur, removes more noise but may lose edge detail
+  # Recommended range: 3-9
+  blur_kernel: 1
+
+# Edge Detection Parameters
+# -------------------------
+edge_detection:
+  # Low threshold for Canny edge detection
+  # Edges with gradient below this are discarded
+  # Recommended range: 30-80
+  canny_low: 50
+
+  # High threshold for Canny edge detection
+  # Edges with gradient above this are definitely edges
+  # Recommended range: 100-200
+  canny_high: 150
+
+# Hough Transform Parameters
+# --------------------------
+hough_transform:
+  # Distance resolution in pixels of the Hough grid
+  # Smaller values = finer resolution but more computation
+  rho: 1
+
+  # Angular resolution in radians of the Hough grid
+  # π/180 = 1 degree resolution
+  theta: 0.017453293  # np.pi / 180
+
+  # Minimum number of votes (intersections in Hough grid cell) for line detection
+  # Higher values = more strict, fewer false positives but may miss real lines
+  # Recommended range: 30-80
+  threshold: 50
+
+  # Minimum length of a line segment in pixels
+  # Shorter segments are discarded
+  # Recommended range: 30-80
+  min_line_length: 30
+
+  # Maximum allowed gap in pixels between segments to treat them as a single line
+  # Larger values = more forgiving, connects more segments
+  # Recommended range: 50-200
+  max_line_gap: 50
+
+# Region of Interest (ROI) Settings
+# ---------------------------------
+roi:
+  # Custom ROI vertices as a list of [x, y] coordinates
+  # Define a polygon (typically trapezoid) to mask the lane region
+  # Set to null to use automatic ROI (default trapezoid based on image size)
+  # Example: [[100, 720], [550, 450], [750, 450], [1180, 720]]
+  vertices: null
+
+# Logging Settings
+# ----------------
+logging:
+  # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  # DEBUG: Detailed information for diagnosing problems
+  # INFO: General informational messages about pipeline progress
+  # WARNING: Warning messages about potential issues
+  # ERROR: Error messages for serious problems
+  level: "INFO"

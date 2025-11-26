@@ -1,0 +1,68 @@
+# Lane Detection Configuration - Highway Scenario
+# =================================================
+# Optimized for highway driving conditions:
+# - Well-marked lanes
+# - Higher speeds (need longer line segments)
+# - Less noise from surrounding objects
+# - Wider field of view
+
+# Input/Output Settings
+# ---------------------
+input:
+  # Path to the input image (required)
+  image: "learning_projects/project-01-classical-lanes/data/input/test.jpg"
+
+output:
+  # Path to save the output image (optional, set to null to skip saving)
+  path: null
+  # Whether to display the result in a window
+  display: true
+
+# Preprocessing Parameters
+# ------------------------
+preprocessing:
+  # Lower blur for highway - preserve more detail
+  # Highway lanes are usually clear and well-marked
+  blur_kernel: 3
+
+# Edge Detection Parameters
+# -------------------------
+edge_detection:
+  # Lower thresholds for highway to catch all lane markings
+  # Highway lanes are typically clearer, so we can be more selective
+  canny_low: 40
+  canny_high: 120
+
+# Hough Transform Parameters
+# --------------------------
+hough_transform:
+  # Distance resolution in pixels of the Hough grid
+  rho: 1
+
+  # Angular resolution in radians (1 degree)
+  theta: 0.017453293  # np.pi / 180
+
+  # Lower threshold for highway - more tolerant
+  # Highway lanes are continuous and well-marked
+  threshold: 40
+
+  # Longer minimum line length for highway
+  # High-speed roads have longer, straighter lane segments
+  min_line_length: 80
+
+  # Larger gap tolerance for highway
+  # Allow for dashed lines with bigger gaps
+  max_line_gap: 200
+
+# Region of Interest (ROI) Settings
+# ---------------------------------
+roi:
+  # Wider ROI for highway to capture distant lane markers
+  # Highway perspective shows lanes converging to a distant vanishing point
+  vertices: null  # Use automatic ROI
+
+# Logging Settings
+# ----------------
+logging:
+  # Set to DEBUG to see detailed processing information
+  level: "INFO"
