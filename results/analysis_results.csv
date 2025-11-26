@@ -1,0 +1,9 @@
+image_name,left_detected,right_detected,both_detected,num_left_segments,num_right_segments,processing_time_ms,blur_kernel,canny_low,canny_high,hough_threshold,min_line_length,max_line_gap
+007452_png.rf.ec27bbddf0dda7d9ac166ffa450f2c73.jpg,False,False,False,0,0,16.836166381835938,1,50,150,50,30,50
+test.jpg,True,True,True,3,2,9.452104568481445,1,50,150,50,30,50
+007380_png.rf.f1ec4604941238acffa79e3b6098e104.jpg,False,True,False,0,6,11.494874954223633,1,50,150,50,30,50
+007337_png.rf.6193e6586c7e71a388168fa4872fe59d.jpg,False,False,False,0,0,8.530855178833008,1,50,150,50,30,50
+test3.jpg,True,True,True,2,2,5.7373046875,1,50,150,50,30,50
+007358_png.rf.5c4cba008c195b310712ad13c5418675.jpg,True,True,True,2,1,5.611419677734375,1,50,150,50,30,50
+007416_png.rf.95ed81938326ace32486b804613a7711.jpg,True,True,True,10,4,7.920742034912109,1,50,150,50,30,50
+test2.jfif,True,True,True,512,378,356.7812442779541,1,50,150,50,30,50
